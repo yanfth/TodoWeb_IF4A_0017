@@ -14,6 +14,11 @@ btnTambah.addEventListener("click", function () {
   let spanbaru = document.createElement("span");
   spanbaru.innerHTML = teksTugas;
 
+  // Tombol Hapus
+  let btnHapus = document.createElement("button");
+  btnHapus.innerHTML = "Hapus";
+  btnHapus.classList.add("hapus");
+
   listbaru.appendChild(spanbaru);
   listbaru.appendChild(btnHapus);
   daftarTugas.appendChild(listbaru);
