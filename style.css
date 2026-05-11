@@ -1,3 +1,11 @@
+/* Background color */
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #00d4ff 0%, #1a6fd4 40%, #0d0d4d 100%);
+}
+
+/* End halaman */
+
 h1 {
   text-align: center;
   color: #4338ca;
