@@ -188,6 +188,84 @@ li {
   opacity: 0.8;
 }
 
+/* ✅ Popup Konfirmasi */
+#popupKonfirmasi {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#popupBox {
+  background: white;
+  padding: 28px 32px;
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 300px;
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#popupBox p {
+  font-size: 16px;
+  color: #1e293b;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+#popupTombol {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#popupTombol #btnBatal {
+  background: #e2e8f0;
+  color: #475569;
+  width: 50%;
+}
+
+#popupTombol #btnBatal:hover {
+  background: #cbd5e1;
+}
+
+#popupTombol #btnLanjut {
+  background: #ef4444;
+  color: white;
+  width: 50%;
+}
+
+#popupTombol #btnLanjut:hover {
+  background: #dc2626;
+}
+
 /* ✅ Responsive Mobile */
 @media (max-width: 480px) {
   body {

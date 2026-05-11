@@ -5,6 +5,49 @@ const daftarTugas = document.getElementById("daftarTugas");
 
 let editItem = null;
 
+function showKonfirmasi(item) {
+  let popupLama = document.getElementById("popupKonfirmasi");
+  if (popupLama) popupLama.remove();
+
+  let popup = document.createElement("div");
+  popup.id = "popupKonfirmasi";
+  popup.innerHTML = `
+    <div id="popupBox">
+      <p>Apakah Antum Yakin ?</p>
+      <div id="popupTombol">
+        <button id="btnBatal">Batal</button>
+        <button id="btnLanjut">Hapus</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(popup);
+
+  document.getElementById("btnBatal").addEventListener("click", function () {
+    popup.remove();
+  });
+
+  document.getElementById("btnLanjut").addEventListener("click", function () {
+    daftarTugas.removeChild(item);
+    popup.remove();
+    cekDaftarKosong();
+  });
+}
+
+function cekDaftarKosong() {
+  let pesanKosong = document.getElementById("pesanKosong");
+  if (daftarTugas.children.length === 0) {
+    if (!pesanKosong) {
+      let p = document.createElement("p");
+      p.id = "pesanKosong";
+      p.innerHTML = " Belum ada tugas. Tambahkan tugas baru!";
+      daftarTugas.parentNode.insertBefore(p, daftarTugas.nextSibling);
+    }
+  } else {
+    if (pesanKosong) pesanKosong.remove();
+  }
+}
+
 function updateBadgeStatus(item, status) {
   let badge = item.querySelector(".badge-status");
   if (!badge) {
@@ -88,7 +131,7 @@ btnTambah.addEventListener("click", function () {
   btnHapus.classList.add("hapus");
 
   btnHapus.addEventListener("click", function () {
-    daftarTugas.removeChild(listbaru);
+    showKonfirmasi(listbaru);
   });
 
   let divTombol = document.createElement("div");
@@ -105,6 +148,7 @@ btnTambah.addEventListener("click", function () {
 
   inputTugas.value = "";
   inputTanggal.value = "";
+  cekDaftarKosong();
 });
 
 const card = document.querySelector(".card");
@@ -127,3 +171,5 @@ card.addEventListener("mouseleave", function () {
   card.style.transform =
     "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
 });
+
+cekDaftarKosong();
