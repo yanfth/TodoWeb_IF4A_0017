@@ -7,22 +7,19 @@ btnTambah.addEventListener("click", function () {
   let teksTugas = inputTugas.value;
   let tanggal = inputTanggal.value;
 
-  if (teksTugas === "") {
-    alert("Data harus dimasukkan!");
+  if (teksTugas === "" || tanggal === "") {
+    alert("Tugas dan tanggal harus diisi!");
     return;
   }
 
   let listbaru = document.createElement("li");
-
   let spanbaru = document.createElement("span");
   spanbaru.innerHTML = teksTugas;
 
-  // tanggal
   let spanTanggal = document.createElement("span");
-  spanTanggal.innerHTML = tanggal ? ` ${tanggal}` : "";
+  spanTanggal.innerHTML = ` ${tanggal}`;
   spanTanggal.classList.add("tanggal");
 
-  // Tombol Hapus
   let btnHapus = document.createElement("button");
   btnHapus.innerHTML = "Hapus";
   btnHapus.classList.add("hapus");
