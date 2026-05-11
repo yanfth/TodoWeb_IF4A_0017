@@ -6,9 +6,18 @@
 }
 
 body {
-  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483);
+  background: linear-gradient(
+    135deg,
+    #1a1a2e,
+    #16213e,
+    #0f3460,
+    #533483,
+    #e94560,
+    #0f3460,
+    #16213e
+  );
   background-size: 400% 400%;
-  animation: gradientBG 10s ease infinite;
+  animation: gradientBG 8s ease infinite;
   display: flex;
   justify-content: center;
   padding: 40px 16px;
@@ -19,8 +28,14 @@ body {
   0% {
     background-position: 0% 50%;
   }
+  25% {
+    background-position: 50% 100%;
+  }
   50% {
     background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
   }
   100% {
     background-position: 0% 50%;
