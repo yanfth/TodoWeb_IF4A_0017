@@ -12,21 +12,11 @@ btnTambah.addEventListener("click", function () {
 
   let listbaru = document.createElement("li");
   let spanbaru = document.createElement("span");
-
   spanbaru.innerHTML = teksTugas;
 
   listbaru.appendChild(spanbaru);
-
+  listbaru.appendChild(btnHapus);
   daftarTugas.appendChild(listbaru);
-
-  const warnabaru = document.querySelectorAll("li");
-  warnabaru.forEach((item, index) => {
-    if (index % 2 === 0) {
-      item.style.color = "red";
-    } else {
-      item.style.color = "green";
-    }
-  });
 
   inputTugas.value = "";
 });
