@@ -61,3 +61,26 @@ li {
 .hapus:hover {
   background: #dc2626;
 }
+
+.checkbox-tugas {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #4f46e5;
+}
+
+.badge-status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.badge-status.onprogress {
+  background: #f59e0b;
+}
+
+.badge-status.done {
+  background: #22c55e;
+}
