@@ -5,6 +5,18 @@ const daftarTugas = document.getElementById("daftarTugas");
 
 let editItem = null;
 
+function updateBadgeStatus(item, status) {
+  let badge = item.querySelector(".badge-status");
+  if (!badge) {
+    badge = document.createElement("span");
+    badge.classList.add("badge-status");
+    item.insertBefore(badge, item.querySelector(".tombol-group"));
+  }
+  badge.className = "badge-status";
+  badge.classList.add(status.toLowerCase().replace(" ", ""));
+  badge.innerHTML = status;
+}
+
 btnTambah.addEventListener("click", function () {
   let teksTugas = inputTugas.value.trim();
   let tanggal = inputTanggal.value;
@@ -29,6 +41,10 @@ btnTambah.addEventListener("click", function () {
 
   let listbaru = document.createElement("li");
 
+  let checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.classList.add("checkbox-tugas");
+
   let spanbaru = document.createElement("span");
   spanbaru.innerHTML = teksTugas;
   spanbaru.classList.add("teks-tugas");
@@ -37,6 +53,24 @@ btnTambah.addEventListener("click", function () {
   spanTanggal.innerHTML = ` ${tanggal}`;
   spanTanggal.dataset.nilai = tanggal;
   spanTanggal.classList.add("tanggal");
+
+  let badge = document.createElement("span");
+  badge.classList.add("badge-status", "onprogress");
+  badge.innerHTML = "On Progress";
+
+  checkbox.addEventListener("change", function () {
+    if (checkbox.checked) {
+      badge.className = "badge-status done";
+      badge.innerHTML = "Done";
+      spanbaru.style.textDecoration = "line-through";
+      spanbaru.style.color = "#94a3b8";
+    } else {
+      badge.className = "badge-status onprogress";
+      badge.innerHTML = "On Progress";
+      spanbaru.style.textDecoration = "none";
+      spanbaru.style.color = "";
+    }
+  });
 
   let btnEdit = document.createElement("button");
   btnEdit.innerHTML = "Edit";
@@ -62,8 +96,10 @@ btnTambah.addEventListener("click", function () {
   divTombol.appendChild(btnEdit);
   divTombol.appendChild(btnHapus);
 
+  listbaru.appendChild(checkbox);
   listbaru.appendChild(spanbaru);
   listbaru.appendChild(spanTanggal);
+  listbaru.appendChild(badge);
   listbaru.appendChild(divTombol);
   daftarTugas.appendChild(listbaru);
 
