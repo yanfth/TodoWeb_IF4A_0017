@@ -6,10 +6,13 @@
 }
 
 body {
-  background: #e0e7ff;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
   display: flex;
   justify-content: center;
   padding: 40px 16px;
+  min-height: 100vh;
 }
 
 .card {
@@ -27,13 +30,13 @@ ul {
 }
 h1 {
   text-align: center;
-  color: #ffffff;
+  color: #121111;
   font-size: 2.5rem;
   margin-bottom: 24px;
 }
 
 h3 {
-  color: rgb(255, 255, 255);
+  color: rgb(58, 53, 53);
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 10px;
